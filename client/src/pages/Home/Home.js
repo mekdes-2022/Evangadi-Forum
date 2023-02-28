@@ -6,7 +6,7 @@ const Home = ({ logout }) => {
     const [userData, setUserData] = useContext(UserContext);
     const navigate = useNavigate();
   useEffect(() => {
-    if (!userData.user) Navigate("/login");
+    if (!userData.user) navigate("/login");
   }, [userData.user, navigate]);
   return (
     <div>

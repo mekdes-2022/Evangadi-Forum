@@ -4,7 +4,11 @@ module.exports = {
   register: (data, callback) => {
     pool.query(
       `INSERT INTO registration(user_name,user_email,user_password)VALUES(?,?,?)`,
-      [data.userName, data.email, data.password],
+      [
+        data.userName,
+        data.email,
+        data.password
+      ],
       (err, result) => {
         if (err) {
           return callback(err);
@@ -16,6 +20,7 @@ module.exports = {
   profile: (data, callback) => {
     pool.query(
       `INSERT INTO profile(user_id,first_name,last_name)VALUES(?,?,?)`,
+      
         [
             data.userId,
             data.firstName,

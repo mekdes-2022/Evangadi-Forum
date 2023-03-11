@@ -1,0 +1,39 @@
+.home {
+  padding-left: 180px;
+  padding-right: 120px;
+}
+.home__ask button {
+  background: #516cf0;
+  color: white;
+  border-radius: 6px;
+  border-color: white;
+  width: 120px;
+  height: 25px;
+  margin-right: 600px;
+  margin-top: 24px;
+  font-size: 10px;
+}
+.home__ask {
+  display: flex;
+}
+.home__ask h5 {
+  font-size: 20px;
+  font-weight: 100;
+}
+h5 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.home__questions {
+  display: flex;
+}
+.home__question {
+  padding-top: 25px;
+  padding-left: 25px;
+  padding-right: 10px;
+}
+.home__questionsArrow {
+  padding-top: 25px;
+  margin-left: 685px;
+}

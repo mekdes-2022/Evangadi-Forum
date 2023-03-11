@@ -1,4 +1,5 @@
 const { register, getAllUsers, userById, getUserByEmail, profile } = require('./user.service');
+
 const pool= require('../../config/database')
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
@@ -13,7 +14,7 @@ module.exports = {
                 .json({ msg: 'Not all fields have been provided' })
         if (password.length < 8)
             return res.status(400).json({ msg: 'Password must be at least 8 characters!' })
-        pool.query(`SELECT * FROM registration WHERE user_email = ?`, [email],
+        pool.query('SELECT * FROM registration WHERE user_email = ?', [email],
             (err, results) => {
                 if (err) {
                     return res
@@ -34,7 +35,7 @@ module.exports = {
                             console.log(err);
                             return res.status(500).json({ msg: "database connection err" });
                         }
-                        pool.query(`SELECT * FROM registration WHERE user_email=?`, [email],
+                        pool.query('SELECT * FROM registration WHERE user_email = ?', [email],
                             (err, results) => {
                                 if (err) {
                                     return res.status(err).json({ msg: "database connection err" })
@@ -47,7 +48,7 @@ module.exports = {
                                         return res.status(500).json({ msg: "database connection err" })
                                     }
                                     return res.status(200).json({
-                                        msg: "Now user added successfully",
+                                        msg: "New user added successfully",
                                         data: results
                                     })
                                 })
@@ -81,7 +82,7 @@ module.exports = {
                 return res.status(500).json({ msg:"database connection err"})
             }
             if (!results) {
-                return res.status(404), json({ msg: "Record not found" });
+                return res.status(404).json({ msg: "Record not found" });
             }
             return res.status(200).json({data:results})
         })
